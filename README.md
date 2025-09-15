@@ -22,6 +22,5 @@ Ce site présente mes projets, mes compétences et mon parcours.
 - Git & GitHub Pages pour le déploiement
 
 ---
-
-### 🚀 Démo en ligne
-👉 [Voir le site en live](https://abdellahsany.github.io/Portfolio/)
+### 🔗 Démo live
+[Voir le site en live](https://abdellahsany.github.io/Portfolio/)
