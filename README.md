@@ -14,14 +14,14 @@ Ce site présente mes projets, mes compétences et mon parcours.
 
 ---
 
-### 🚀 Démo en ligne
-👉 [Voir le site en live](https://abdellahsany.github.io/Portfolio/)
-
----
-
-###  🛠️ Technologies utilisées
+### 🛠️ Technologies maitrisées
 - HTML5 / CSS3
 - JavaScript (ES6+)
 - React (si utilisé dans tes projets)
 - Responsive Design (mobile-first)
 - Git & GitHub Pages pour le déploiement
+
+---
+
+### 🚀 Démo en ligne
+👉 [Voir le site en live](https://abdellahsany.github.io/Portfolio/)
