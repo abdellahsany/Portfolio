@@ -1,12 +1,11 @@
-Parfait 👌 je vais te préparer un **README.md** clair et moderne pour ton repo `Portfolio`.
-Tu pourras le mettre à la racine de ton projet (même niveau que `index.html`).
+## Portfolio
+
+<p align="center">
+  <img src="https://github.com/abdellahsany/Kasa/blob/main/src/assets/images/kasa_welcome.png" alt="Page d’accueil Kasa" width="100%">
+</p>
 
 ---
-
-## 📄 Exemple de `README.md`
-
-```markdown
-# 🌐 Portfolio – Abdellah Sany
+# 🌐 Profil
 
 Bienvenue sur mon portfolio !  
 Je suis **développeur front-end passionné**, j’aime transformer des maquettes en expériences fluides, accessibles et performantes.  
