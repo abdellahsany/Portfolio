@@ -1,7 +1,7 @@
 ## Portfolio
 
 <p align="center">
-  <img src="(https://github.com/abdellahsany/Portfolio/blob/main/assets/portfolio.png) alt="Page d’accueil Portfolio" width="100%">
+  <img src="https://github.com/abdellahsany/Portfolio/blob/main/assets/portfolio.png" alt="Page d’accueil Portfolio" width="100%">
 </p>
 
 ---
