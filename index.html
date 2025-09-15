@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio</title>
+
+    <!-- SEO de base -->
+    <meta name="description"
+        content="Portfolio d'Abdellah Sany — Développeur Front-End (JavaScript / React). Projets : GameOn, FishEye, Kasa, Booki, Ohmyfood.">
+    <meta name="author" content="Abdellah Sany">
+    <link rel="canonical" href="https://abdellahsany.github.io/portfolio/">
+
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:title" content="Portfolio">
+    <meta property="og:description" content="Développeur Front-End (JavaScript / React).">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://abdellahsany.github.io/portfolio/">
+    <meta property="og:image" content="assets/og-cover.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon (mets ton image) -->
+    <link rel="icon" href="assets/favicon.png">
+
+    <style>
+        :root {
+            --bg: #0f1220;
+            --fg: #e9ecf1;
+            --muted: #9aa4b2;
+            --card: #151a2e;
+            --line: #222a45;
+            --accent: #6ee7b7;
+            /* vert doux */
+            --accent-2: #60a5fa;
+            /* bleu clair */
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--accent-2);
+            text-decoration: none
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: auto;
+            padding: 0 1.2rem
+        }
+
+        /* Header / Nav */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: saturate(1.2) blur(8px);
+            background: color-mix(in oklab, var(--bg) 92%, transparent);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px
+        }
+
+        .brand {
+            font-weight: 700;
+            letter-spacing: .3px
+        }
+
+        .menu {
+            display: flex;
+            gap: 1rem
+        }
+
+        .menu a {
+            padding: .5rem .75rem;
+            border-radius: 10px
+        }
+
+        .menu a:hover {
+            background: var(--card)
+        }
+
+        .mobile-toggle {
+            display: none
+        }
+
+        /* Hero */
+        .hero {
+            padding: 5rem 0 3rem;
+            text-align: center
+        }
+
+        .hero h1 {
+            margin: .2rem 0 0;
+            font-size: clamp(2rem, 6vw, 3rem)
+        }
+
+        .hero p {
+            color: var(--muted);
+            margin: .6rem 0 1.2rem
+        }
+
+        .btns {
+            display: flex;
+            gap: .8rem;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            display: inline-block;
+            padding: .7rem 1.1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            border: 1px solid var(--line);
+            background: var(--card);
+            color: var(--fg);
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #0b1020;
+            border: none
+        }
+
+        .btn:hover {
+            transform: translateY(-1px)
+        }
+
+        .tags {
+            display: flex;
+            gap: .6rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem
+        }
+
+        .tag {
+            border: 1px solid var(--line);
+            background: var(--card);
+            color: var(--muted);
+            padding: .35rem .6rem;
+            border-radius: 999px;
+            font-size: .9rem
+        }
+
+        /* Sections */
+        section {
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--line)
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin: 0 0 1rem
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        /* Grid projets */
+        .grid {
+            display: grid;
+            gap: 1.2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, .3)
+        }
+
+        .thumb {
+            aspect-ratio: 16/9;
+            background: #0b0e1a;
+            display: block
+        }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .card .body {
+            padding: 1rem
+        }
+
+        .card h3 {
+            margin: .2rem 0 .5rem;
+            font-size: 1.15rem
+        }
+
+        .actions {
+            display: flex;
+            gap: .5rem;
+            margin-top: .8rem
+        }
+
+        .button {
+            flex: 1;
+            text-align: center;
+            padding: .55rem .6rem;
+            border-radius: 10px;
+            border: 1px solid var(--line);
+            background: #0f1426;
+            color: var(--fg);
+        }
+
+        .button.live {
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #0b1020;
+            border: none;
+            font-weight: 700
+        }
+
+        .button:hover {
+            text-decoration: none;
+            filter: saturate(1.1)
+        }
+
+        /* À propos */
+        .about {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr;
+            align-items: center
+        }
+
+        @media (min-width:880px) {
+            .about {
+                grid-template-columns: 1.1fr .9fr
+            }
+        }
+
+        .about img {
+            width: 100%;
+            max-width: 180px;
+            /* limite la taille du portrait */
+            border-radius: 50%;
+            /* rend l’image parfaitement ronde */
+            border: 4px solid var(--line);
+            /* bordure fine et propre */
+            object-fit: cover;
+            /* garde les proportions */
+        }
+
+
+        /* Contact */
+        .contact {
+            display: grid;
+            gap: 1rem
+        }
+
+        .contact p {
+            margin: 1.0rem;
+        }
+
+
+
+        .contact a {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem
+        }
+
+        .pill {
+            display: inline-block;
+            padding: .45rem .75rem;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: var(--card)
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--muted)
+        }
+
+        .top {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: .6rem .7rem
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav" role="navigation" aria-label="Navigation principale">
+            <div class="brand">Abdellah Sany - Développeur Concepteur Logiciel</div>
+            <nav class="menu" id="menu">
+                <a href="#projets" aria-label="Aller à Projets">Projets</a>
+                <a href="#apropos" aria-label="Aller à À propos">À propos</a>
+                <a href="#contact" aria-label="Aller à Contact">Contact</a>
+            </nav>
+            <button class="mobile-toggle" aria-label="Menu mobile" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero container" id="home">
+        <p class="pill">Développeur Front-End • JavaScript / React</p>
+        <h1>Salut, moi c’est Abdellah 👋</h1>
+        <p>Je conçois des interfaces propres, accessibles et performantes. Voici une sélection de mes projets récents.
+        </p>
+        <div class="btns">
+            <a class="btn primary" href="#projets">Voir mes projets</a>
+            <a class="btn" href="mailto:abdellah@exemple.com">Me contacter</a>
+            <a class="btn" href="assets/CV_Abdellah_Sany.pdf" target="_blank" rel="noopener">Mon CV (PDF)</a>
+        </div>
+        <div class="tags">
+            <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span
+                class="tag">React</span><span class="tag">Accessibilité</span>
+        </div>
+    </section>
+
+    <!-- Projets -->
+    <section id="projets">
+        <div class="container">
+            <h2>🚀 Projets sélectionnés</h2>
+            <p class="muted">Chaque carte contient la démo en ligne (GitHub Pages) et le code source.</p>
+
+            <div class="grid">
+                <!-- GameOn -->
+                <article class="card">
+                    <a class="thumb" href="https://abdellahsany.github.io/GameOn/" target="_blank" rel="noopener">
+                        <img src="assets/img/gameon.png" alt="Aperçu du projet GameOn" loading="lazy" />
+                    </a>
+                    <div class="body">
+                        <h3>🎮 GameOn</h3>
+                        <p>Formulaire d’inscription responsive avec validation en JavaScript. Focus sur l’UX et
+                            l’accessibilité.</p>
+                        <div class="actions">
+                            <a class="button live" href="https://abdellahsany.github.io/GameOn/" target="_blank"
+                                rel="noopener">Démo</a>
+                            <a class="button" href="https://github.com/abdellahsany/GameOn" target="_blank"
+                                rel="noopener">Code</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- FishEye -->
+                <article class="card">
+                    <a class="thumb" href="https://abdellahsany.github.io/FishEye/" target="_blank" rel="noopener">
+                        <img src="assets/img/fisheye.png" alt="Aperçu du projet FishEye" loading="lazy" />
+                    </a>
+                    <div class="body">
+                        <h3>📸 FishEye</h3>
+                        <p>Plateforme pour photographes avec filtres, tri, modale et gestion d’accessibilité
+                            (clavier/ARIA).</p>
+                        <div class="actions">
+                            <a class="button live" href="https://abdellahsany.github.io/FishEye/" target="_blank"
+                                rel="noopener">Démo</a>
+                            <a class="button" href="https://github.com/abdellahsany/FishEye" target="_blank"
+                                rel="noopener">Code</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Kasa -->
+                <article class="card">
+                    <a class="thumb" href="https://abdellahsany.github.io/Kasa/" target="_blank" rel="noopener">
+                        <img src="assets/img/kasa.png" alt="Aperçu du projet Kasa" loading="lazy" />
+                    </a>
+                    <div class="body">
+                        <h3>🏠 Kasa</h3>
+                        <p>Application React (router, composants réutilisables) pour annonces de locations.</p>
+                        <div class="actions">
+                            <a class="button live" href="https://abdellahsany.github.io/Kasa/" target="_blank"
+                                rel="noopener">Démo</a>
+                            <a class="button" href="https://github.com/abdellahsany/Kasa" target="_blank"
+                                rel="noopener">Code</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Ohmyfood -->
+                <article class="card">
+                    <a class="thumb" href="https://abdellahsany.github.io/ohmyfood/" target="_blank" rel="noopener">
+                        <img src="assets/img/ohmyfood.png" alt="Aperçu du projet Ohmyfood" loading="lazy" />
+                    </a>
+                    <div class="body">
+                        <h3>🍽️ Ohmyfood</h3>
+                        <p>Maquettes to HTML/CSS avec animations et responsive propre. Performance et sémantique.</p>
+                        <div class="actions">
+                            <a class="button live" href="https://abdellahsany.github.io/ohmyfood/" target="_blank"
+                                rel="noopener">Démo</a>
+                            <a class="button" href="https://github.com/abdellahsany/ohmyfood" target="_blank"
+                                rel="noopener">Code</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Booki -->
+                <article class="card">
+                    <a class="thumb" href="https://abdellahsany.github.io/Booki/" target="_blank" rel="noopener">
+                        <img src="assets/img/booki.png" alt="Aperçu du projet Booki" loading="lazy" />
+                    </a>
+                    <div class="body">
+                        <h3>🛏️ Booki</h3>
+                        <p>Intégration d’une maquette accessible (Flexbox/Grid), design responsive.</p>
+                        <div class="actions">
+                            <a class="button live" href="https://abdellahsany.github.io/Booki/" target="_blank"
+                                rel="noopener">Démo</a>
+                            <a class="button" href="https://github.com/abdellahsany/Booki" target="_blank"
+                                rel="noopener">Code</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- À propos -->
+    <section id="apropos">
+        <div class="container about">
+            <div>
+                <h2>🧑‍💻 À propos</h2>
+                <p>Je suis <strong>Abdellah Sany</strong>, développeur front-end passionné.
+                    J’aime transformer des maquettes en expériences rapides, accessibles et élégantes.
+                    Je travaille principalement avec <strong>JavaScript</strong> et <strong>React</strong>, en soignant
+                    la sémantique, l’accessibilité et la performance.</p>
+
+                <p>🎓 <strong>RNCP Développeur Concepteur Logiciel</strong></p>
+
+                <p class="muted">Actuellement ouvert aux opportunités (stage/mission/emploi). Basé à Ville-la-Grand
+                    (FR), ouvert au remote.</p>
+
+                <div class="tags" aria-label="Compétences">
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3 / SASS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Git / GitHub</span>
+                    <span class="tag">SEO</span>
+                    <span class="tag">Accessibilité (a11y)</span>
+                </div>
+            </div>
+
+            <div>
+                <img src="assets/portrait.png" alt="Portrait d'Abdellah Sany" class="portrait">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container contact">
+            <h2>📬 Contact</h2>
+            <p>
+                Téléphone :
+                <a href="tel:+33670483071">
+                    <strong>+33 6 70 48 30 71</strong>
+                </a>
+            </p>
+            <p>Le plus simple : <a href="mailto:abdellah.sany@gmail.com"><strong>abdellah.sany@gmail.com</strong></a>
+            </p>
+            <p>
+                <a class="pill" href="https://github.com/abdellahsany" target="_blank" rel="noopener">GitHub</a>
+                <a class="pill" href="https://www.linkedin.com/in/abdellahsany" target="_blank"
+                    rel="noopener">LinkedIn</a>
+                <a class="pill" href="assets/CV_Abdellah_Sany.pdf" target="_blank" rel="noopener">Télécharger mon CV</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">© <span id="year"></span> Abdellah Sany - hébergé sur GitHub Pages</div>
+    </footer>
+
+    <a href="#home" class="top" aria-label="Retour en haut">↑</a>
+
+    <script>
+        // Année automatique + mini menu mobile (si tu veux l’activer, enlève display:none sur .mobile-toggle)
+        document.getElementById('year').textContent = new Date().getFullYear();
+        function toggleMenu() { document.getElementById('menu').classList.toggle('open'); }
+    </script>
+</body>
+
+</html>
