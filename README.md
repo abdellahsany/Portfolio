@@ -1,7 +1,7 @@
 ## Portfolio
 
 <p align="center">
-  <img src="https://github.com/abdellahsany/Kasa/blob/main/src/assets/images/kasa_welcome.png" alt="Page d’accueil Kasa" width="100%">
+  <img src="https://github.com/abdellahsany/Portfolio/blob/main/src/assets/kasa_welcome.png" alt="Page d’accueil Portfolio" width="100%">
 </p>
 
 ---
