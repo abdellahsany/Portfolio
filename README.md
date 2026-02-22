@@ -8,8 +8,7 @@
 
 ### 🌐 Profil
 
-Bienvenue sur mon portfolio ! Je suis **développeur front-end passionné**, j’aime transformer des maquettes en expériences fluides, accessibles et performantes.  
-Ce site présente mes projets, mes compétences et mon parcours.
+Bienvenue sur mon portfolio ! Je suis **développeur front-end passionné**, j’aime transformer des maquettes en expériences fluides, accessibles et performantes. Ce site présente mes projets, mes compétences et mon parcours.
 
 ---
 
