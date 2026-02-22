@@ -25,7 +25,7 @@ Ce site présente mes projets, mes compétences et mon parcours.
 ### 🔗 Démo
 
 <a href="https://abdellahsany.github.io/Portfolio/" target="_blank">
-  <img src="https://img.shields.io/badge/Portfolio-Cliquez%20ici-4CAF50?style=plastic&logo=github&logoColor=white"
+  <img src="https://img.shields.io/badge/Portfolio-Cliquez%20ici-0f1220?style=plastic&logo=github&logoColor=white"
        alt="Démo"
        style="border-radius:10px;">
 </a>
