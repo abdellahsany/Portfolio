@@ -19,11 +19,3 @@ Bienvenue sur mon portfolio ! Je suis **développeur front-end passionné**, j�
 - Responsive Design (mobile-first)
 - Git & GitHub Pages pour le déploiement
 
----
-### 🔗 Démo
-
-<a href="https://abdellahsany.github.io/Portfolio/" target="_blank">
-  <img src="https://img.shields.io/badge/Portfolio-Cliquez%20ici-0f1220?style=plastic&logo=github&logoColor=white"
-       alt="Démo"
-       style="border-radius:10px;">
-</a>
